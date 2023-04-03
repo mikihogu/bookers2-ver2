@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one_attached :user_image
   
   def get_user_image
-    (user_image.attached?) ? image : 'no_image.jpg'
+    (user_image.attached?) ? user_image : 'no_image.jpg'
   end
   
 end
