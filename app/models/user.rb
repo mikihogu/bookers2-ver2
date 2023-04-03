@@ -6,6 +6,11 @@ class User < ApplicationRecord
          
   validates :name, presence: true
   
-  # has_one_attached :user_image
+  has_many :books
+  has_one_attached :user_image
+  
+  def get_user_image
+    (user_image.attached?) ? image : 'no_image.jpg'
+  end
   
 end
