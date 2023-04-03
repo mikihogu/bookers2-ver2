@@ -1,12 +1,12 @@
 <h4>New Book</h4>
 <%= form_with model: book do |f| %>
   <div class="form-group">
-    <%= f.label :title, "Title" %><br>
-    <%= f.text_field :title, class: "w-100" %>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, class: "form-control w-100" %>
   </div>
   <div class="form-group">
-    <%= f.label :opinion, "Opinion" %><br>
-    <%= f.text_area :opinion, class: "w-100", placeholder: "100文字以内" %>
+    <%= f.label :opinion, "Opinion" %>
+    <%= f.text_area :opinion, class: "form-control w-100", placeholder: "200文字以内" %>
   </div>
   <div class="form-group">
     <%= f.submit "create", class: "btn btn-sm btn-outline-success" %>

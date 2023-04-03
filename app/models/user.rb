@@ -4,13 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
+  validates :introduction, length: { maximum: 50 }
   
   has_many :books
-  has_one_attached :user_image
+  has_one_attached :profile_image
   
-  def get_user_image
-    (user_image.attached?) ? user_image : 'no_image.jpg'
+  def get_profile_image
+    (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
   
 end
