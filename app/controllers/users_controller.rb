@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_current_user, only: [:edit, :update]
 
-  def new
-
-  end
-
-  def create
-
-  end
-
   def index
     @users = User.all
     @user = current_user
@@ -28,9 +20,9 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "Updated"
+      redirect_to user_path(@user), notice: "Updated successfully"
     else
-      render :show, notice: "Failed"
+      render :edit
     end
   end
 
@@ -39,6 +31,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :instoduction, :profile_image)
   end
